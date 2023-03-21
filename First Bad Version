@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int firstBadVersion(int n) {
+        int start=0;
+        int end=n;
+        int mid=0;int last=1;
+        while(start<=end){
+        mid=((start)-(start/2)+(end/2));
+            if(isBadVersion(mid)){
+                end=mid-1;
+                last=mid;
+            }
+            else{
+                start=mid+1;
+            }
+        }
+        return last;
+    }
+  };
