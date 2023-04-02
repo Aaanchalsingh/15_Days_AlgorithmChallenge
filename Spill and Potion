@@ -1,0 +1,13 @@
+class Solution {
+public:
+    vector<int> successfulPairs(vector<int>& spells, vector<int>& v, long long success) {
+        long long int key=0,c=0,i,low=0;
+        vector<int> ans;int n=v.size();
+        sort(v.begin(),v.end());
+        for(i=0;i<spells.size();i++){
+            low=lower_bound (v.begin(), v.end(),ceil((double)success / spells[i])) - v.begin();
+            ans.push_back(n-low);
+        }
+        return ans;
+    }
+};
